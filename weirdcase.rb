@@ -3,14 +3,18 @@
 # The passed in string will only consist of alphabetical characters and spaces(' '). Spaces will only be present if there are multiple words. Words will be separated by a single space(' ').
 
 def weirdcase string
-  arr=string.split('')
-
-  arr.each_with_index do |e,i|
-    if i.even?
-      arr[i]=e.upcase
-    else
-      arr[i]=e.downcase
+  words=string.split(' ')
+  result=[]
+  words.each do |word|
+    arr=word.split('')
+    arr.each_with_index do |e,i|
+      if i.even?
+        arr[i]=e.upcase
+      else
+        arr[i]=e.downcase
+      end
     end
+    result << arr.join
   end
-  arr.join
+  result.join(' ')
 end
