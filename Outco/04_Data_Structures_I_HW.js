@@ -67,12 +67,27 @@ LinkedList.prototype.append= function(val) {
     this.length++
 }
 
+LinkedList.prototype.insert= function(searchVal,insertVal) {
+    var currentNode=this.head
+    while(currentNode.next!== null){
+      if (currentNode.next.value===searchVal){
+        newNode= new Node(insertVal,currentNode.next)
+        currentNode.next=newNode
+        this.length++
+        return
+      } else {
+        currentNode = currentNode.next
+      }
+    }
+    console.log("search value not found!")
+}
+
 var list = new LinkedList
 
 list.append("a")
 list.append("b")
 list.append("c")
 list.append("d")
+list.insert("z","z")
 
-// console.log(list)
-console.log(list.head.next.next.next)
+console.log(list)
