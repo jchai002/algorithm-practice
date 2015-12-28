@@ -103,12 +103,22 @@ LinkedList.prototype.delete= function(location) {
     }
 }
 
+LinkedList.prototype.contains=function(val){
+  var currentNode=this.head
+  while (currentNode){
+    if (currentNode.value===val){
+      return true
+    }
+    currentNode=currentNode.next
+  }
+  return false
+}
+
 var list = new LinkedList
 
 list.append("a")
 list.append("b")
 list.append("c")
 list.append("d")
-list.delete(1)
 
-console.log(list)
+console.log(list.contains("e"))
