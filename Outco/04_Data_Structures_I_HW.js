@@ -82,12 +82,33 @@ LinkedList.prototype.insert= function(searchVal,insertVal) {
     console.log("search value not found!")
 }
 
+LinkedList.prototype.delete= function(location) {
+    if (location){
+      if (location<this.length){
+        var currentNode=this.head
+        var prevNode=null
+        var pointer=0
+        while(pointer!==location){
+            prevNode=currentNode
+            currentNode = currentNode.next
+            pointer++
+        }
+        prevNode.next=currentNode.next
+        currentNode=null
+        this.length--
+      }
+    } else {
+      this.head=this.head.next
+      this.length--
+    }
+}
+
 var list = new LinkedList
 
 list.append("a")
 list.append("b")
 list.append("c")
 list.append("d")
-list.insert("z","z")
+list.delete(1)
 
 console.log(list)
