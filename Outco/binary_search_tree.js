@@ -42,14 +42,32 @@ BinarySearchTree.prototype.insert=function(val){
       }
     }
   }
-
 }
 
+BinarySearchTree.prototype.search=function(val){
+  function traverse(currentNode){
+    if(!currentNode){
+      return false
+    } else if (currentNode.value===val) {
+      return true
+    } else {
+      return traverse(currentNode.leftChild)||traverse(currentNode.rightChild)
+    }
+  }
+  return traverse(this.root)
+}
+
+//testing cases
+
 var tree=new BinarySearchTree();
+tree.insert(-1)
 tree.insert(4)
 tree.insert(3)
 tree.insert(6)
 tree.insert(5)
 tree.insert(8)
 tree.insert(9)
-console.log(tree.root.rightChild)
+tree.insert(10)
+tree.insert(100)
+console.log(tree.search(8))
+console.log(tree.search(1000))
