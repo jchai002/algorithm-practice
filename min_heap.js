@@ -31,11 +31,44 @@ Heap.prototype.insert=function(val){
   }
 }
 
+Heap.prototype.min=function(){
+  return this.head
+}
+
+Heap.prototype.remove=function(val){
+  console.log('initializing value search, matching value will be removed')
+  //if head is the search value
+  if (this.head.value===val){
+    console.log('removing head node with value of', val)
+    this.head=this.head.child
+    console.log('new head has value of', this.head.value)
+  } else {
+    var currentNode=this.head
+    //keep traversing down the heap while child is not null
+    while (currentNode.child) {
+      //if the child matches search value
+      if (currentNode.child.value===val) {
+        console.log('removing node with value of', currentNode.child.value)
+        currentNode.child = currentNode.child.child
+      }
+      //prevent current node from being null and crashing the while loop
+      if (currentNode.child) {
+        currentNode=currentNode.child
+      }
+    }
+  }
+    console.log('finished search, no more matching value in heap')
+}
 
 var heap = new Heap()
 heap.insert(1)
 heap.insert(3)
 heap.insert(5)
 heap.insert(4)
+heap.insert(6)
+heap.insert(2)
 
+heap.remove(1)
+heap.remove(2)
+heap.remove(5)
 console.log(heap.head)
