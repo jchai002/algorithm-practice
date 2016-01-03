@@ -30,6 +30,16 @@ HashTable.prototype.insert=function(key,val){
   console.log('stored key',key,'in bucket number',bucketNumber, 'with the value',val)
 }
 
+HashTable.prototype.delete=function(key){
+  var bucketNumber=this.hash(key,this.buckets)
+  for (var i=0; i<this.storage[bucketNumber].length;i++){
+    if(this.storage[bucketNumber][i][0]===key){
+      this.storage[bucketNumber].splice(i,1)
+      console.log('Deleteing the key',key,'in bucket number',bucketNumber)
+      return
+    }
+  }
+}
 table = new HashTable()
 
 table.insert('cat','meow')
@@ -38,4 +48,7 @@ table.insert('hello','world')
 table.insert('cat','hissss')
 table.insert('meow','yay')
 console.log(table.storage[5])
-console.log(table.storage[5].length)
+table.delete('cat')
+console.log(table.storage[5])
+table.delete('hello')
+console.log(table.storage[1])
