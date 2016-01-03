@@ -40,6 +40,15 @@ HashTable.prototype.delete=function(key){
     }
   }
 }
+
+HashTable.prototype.retrieve=function(key){
+  var bucketNumber=this.hash(key,this.buckets)
+  for (var i=0; i<this.storage[bucketNumber].length;i++){
+    if(this.storage[bucketNumber][i][0]===key){
+      return this.storage[bucketNumber][i]
+    }
+  }
+}
 table = new HashTable()
 
 table.insert('cat','meow')
@@ -47,8 +56,4 @@ console.log(table.storage[5])
 table.insert('hello','world')
 table.insert('cat','hissss')
 table.insert('meow','yay')
-console.log(table.storage[5])
-table.delete('cat')
-console.log(table.storage[5])
-table.delete('hello')
-console.log(table.storage[1])
+console.log(table.retrieve('hello'))
