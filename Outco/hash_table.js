@@ -27,7 +27,11 @@ HashTable.prototype.insert=function(key,val){
     }
   }
   this.storage[bucketNumber].push([key,val])
+  this.size++
   console.log('stored key',key,'in bucket number',bucketNumber, 'with the value',val)
+  if(this.loadFactorCritical()){
+    this.resize();
+  }
 }
 
 HashTable.prototype.delete=function(key){
@@ -35,6 +39,7 @@ HashTable.prototype.delete=function(key){
   for (var i=0; i<this.storage[bucketNumber].length;i++){
     if(this.storage[bucketNumber][i][0]===key){
       this.storage[bucketNumber].splice(i,1)
+      this.size--
       console.log('Deleteing the key',key,'in bucket number',bucketNumber)
       return
     }
@@ -49,11 +54,47 @@ HashTable.prototype.retrieve=function(key){
     }
   }
 }
+
+HashTable.prototype.loadFactorCritical=function(){
+  var loadFactor=this.size/this.buckets
+  if (loadFactor>0.75){
+    console.log('Load Factor is',loadFactor+',','critical Load Factor reached!')
+    return true
+  } else {
+    console.log('Load Factor is',loadFactor+',','status: ok')
+    return false
+  }
+}
+
+
+HashTable.prototype.resize=function(){
+console.log('Resizing...')
+this.buckets=this.buckets*2
+var tempStorage=[]
+for (var i=0; i<this.buckets; i++){
+  tempStorage[i]=new Array();
+}
+
+  for (var i=0;i<this.storage.length;i++){
+    for(var j=0;j<this.storage[i].length;j++){
+      var key=this.storage[i][j][0]
+      var val=this.storage[i][j][1]
+      var bucketNumber=this.hash(key,this.buckets)
+      tempStorage[bucketNumber].push([key,val])
+        console.log('storing key',key,'in new bucket number',bucketNumber, 'with the value',val)
+    }
+  }
+  this.storage=tempStorage
+  tempStorage=null
+  console.log("finished resizing, new hash table:", this)
+}
 table = new HashTable()
 
 table.insert('cat','meow')
-console.log(table.storage[5])
 table.insert('hello','world')
 table.insert('cat','hissss')
 table.insert('meow','yay')
-console.log(table.retrieve('hello'))
+table.insert('dog','woof')
+table.insert('homer','doh!!')
+table.insert('dragon','roar!')
+table.insert('alien','pew pew!')
