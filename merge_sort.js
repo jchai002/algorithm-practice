@@ -1,22 +1,4 @@
-function merge(left, right) {
-
-    var result = [];
-    while(left.length || right.length) {
-      if(left.length && right.length) {
-        if(left[0] < right[0]) {
-          result.push(left.shift());
-        } else {
-          result.push(right.shift());
-        }
-      } else if (left.length) {
-        result.push(left.shift());
-      } else {
-        result.push(right.shift());
-      }
-
-    }
-    return result;
-}
+var merge=require("./merge")
 
 function mergeSort(array) {
   var length = array.length,
@@ -28,3 +10,5 @@ function mergeSort(array) {
   }
   return merge(mergeSort(left), mergeSort(right));
 }
+
+console.log(mergeSort([8,4,7,6,5,3,4,3,2,1]))
