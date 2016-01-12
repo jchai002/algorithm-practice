@@ -51,8 +51,8 @@ var doBFS = function(graph, source) {
     //     Set distance to 1 greater than u's distance
     //     Set predecessor to u
     //     Enqueue v
-    
-    return bfsInfo;
+
+  c  return bfsInfo;
 };
 
 

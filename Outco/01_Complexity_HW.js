@@ -25,15 +25,15 @@ function firstTimesLast(array) {
 
 /**
  * Problem 2:
- *  Time Complexity: O(n)
- *  Auxiliary Space Complexity: n + 1
+ *  Time Complexity: n
+ *  Auxiliary Space Complexity: n
  **/
 
 function mostFrequentOccurrence(string) {
-  var lowerString = string.toLowerCase();
+  var lowerString = string.toLowerCase(); //aux n
   var letters = {};
   var mostFrequent = [];
-  
+
   for(var i = 0; i < lowerString.length; i++) {
     if (letters[lowerString[i]]) {
       letters[lowerString[i]] ++;
@@ -41,6 +41,7 @@ function mostFrequentOccurrence(string) {
       letters[lowerString[i]] = 1;
     }
   }
+  // time n, aux at most 26 letters, therefore constant
 
   for(var key in letters) {
     if (!mostFrequent.length) {
@@ -51,14 +52,14 @@ function mostFrequentOccurrence(string) {
       }
     }
   }
-
+  //time at most 26 letters, so it's constant , aux is constant
   return mostFrequent[0];
 };
 
 /**
  * Problem 3:
  *  Time Complexity: O(n**2)
- *  Auxiliary Space Complexity: 2
+ *  Auxiliary Space Complexity: 1
  **/
 
 function printUnorderedPairs(array) {
@@ -77,7 +78,7 @@ function printUnorderedPairs(array) {
 
 function sortedArraySearch(sortedArray, target) {
   var mid = Math.floor(sortedArray.length / 2);
-  
+
   if (sortedArray[mid] === target) {
     return sortedArray[mid];
   } else if (sortedArray[mid] < target && sortedArray.length > 1) {
@@ -86,7 +87,7 @@ function sortedArraySearch(sortedArray, target) {
     return sortedArraySearch(sortedArray.splice(0, mid), target);
   } else {
     return -1;
-  }   
+  }
 };
 
 /**
@@ -96,8 +97,8 @@ function sortedArraySearch(sortedArray, target) {
  **/
 
 function makeCombinedMatrix(arrayOne, arrayTwo) {
-  var result = [];
-  var row;
+  var result = []; //time 1, aux 1
+  var row; //is this using any memory aka aux space??
 
   for (var i = 0; i < arrayOne.length; i++) {
     row = [];
@@ -105,9 +106,11 @@ function makeCombinedMatrix(arrayOne, arrayTwo) {
     for (var j = 0; j < arrayTwo.length; j++) {
       row.push(arrayTwo[j] + arrayOne[i]);
     }
+    //time n, aux n
 
     result.push(row);
   }
+  //time m, aux m
 
   return result;
 };
