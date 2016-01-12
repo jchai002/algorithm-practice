@@ -1,5 +1,3 @@
-
-
 function flatten(array) {
   var result=[]
 
