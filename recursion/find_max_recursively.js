@@ -1,3 +1,18 @@
+
+ /**
+  *                       Problem I: Find Max Value
+  *
+  *  Prompt: Given a list of integers, find the max value contained in the list.
+  *
+  *  Input: A list (array)
+  *  Ouput: An integer (max value)
+  *
+  *  Example:
+  *
+  *    Input: [1,9,3,4,5]
+  *    Output: 9
+  **/
+  
 function findMax(array){
   console.log("comparing", array[0], "and", array[1])
   if (array.length===1){

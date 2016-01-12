@@ -1,3 +1,18 @@
+/**
+ *                       Problem III: Reverse List Order
+ *
+ *  Prompt: Given a list of elements, reverse the order of the list.
+ *          Try this problem by reversing both in place and by creating a new output array.
+ *
+ *  Input: A list (array)
+ *  Ouput: A list (reversed input array)
+ *
+ *  Example:
+ *
+ *    Input: [1,9,3,4,5]
+ *    Output: [5,4,3,9,1]
+ **/
+ 
 var swap = function(array, firstIndex, secondIndex) {
     var temp = array[firstIndex]; //time 1, aux 1
     array[firstIndex] = array[secondIndex];
