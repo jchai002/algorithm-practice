@@ -34,13 +34,13 @@ var doBFS = function(graph, source) {
     queue.enqueue(source);
 
     // Traverse the graph
-    while(!queue.isEmpty()){
+    while (!queue.isEmpty()) {
         var u = queue.dequeue();
-        for (var i=0;i<graph[u].length;i++){
+        for (var i = 0; i < graph[u].length; i++) {
             var v = graph[u][i];
-            if (bfsInfo[v].distance===null){
-                bfsInfo[v].distance=bfsInfo[u].distance+1;
-                bfsInfo[v].predecessor=u;                queue.enqueue(v);
+            if (bfsInfo[v].distance === null) {
+                bfsInfo[v].distance = bfsInfo[u].distance + 1;
+                bfsInfo[v].predecessor = u; queue.enqueue(v);
             }
         }
     }
@@ -52,7 +52,7 @@ var doBFS = function(graph, source) {
     //     Set predecessor to u
     //     Enqueue v
 
-  c  return bfsInfo;
+  c return bfsInfo;
 };
 
 

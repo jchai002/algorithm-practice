@@ -15,27 +15,25 @@
  *    Output: 10
  **/
 
- function GCD(int1,int2){
-   var commonDivisors=[]
+ function GCD(int1, int2) {
+   var commonDivisors = [];
 
-   if (int1<int2){
-     var lesser = int1
+   if (int1 < int2) {
+     var lesser = int1;
    }else {
-     var lesser = int2
+     var lesser = int2;
    }
 
-   function findCommonDivisors(num){
-     if (num===0){
-       return
+   function findCommonDivisors(num) {
+     if (num === 0) {
+       return;
      }
-     if (int1%num===0 && int2%num===0){
-       commonDivisors.push(num)
+     if (int1 % num === 0 && int2 % num === 0) {
+       commonDivisors.push(num);
      }
-     findCommonDivisors(num-1)
+     findCommonDivisors(num - 1);
    }
 
-   findCommonDivisors(lesser)
-   return Math.max.apply(null,commonDivisors)
+   findCommonDivisors(lesser);
+   return Math.max.apply(null, commonDivisors);
  }
-
- console.log(GCD(20,10))

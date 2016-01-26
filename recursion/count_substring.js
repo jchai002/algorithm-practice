@@ -16,28 +16,26 @@
  *    Output: 1
  **/
 
-function countSubstring(str,sub){
-  var result = 0
+function countSubstring(str, sub) {
+  var result = 0;
 
-  function traverse(str,sub){
-    if (str.length<sub.length){
-      return
+  function traverse(str, sub) {
+    if (str.length < sub.length) {
+      return;
     }
-    var found = true
-    for (var i=0;i<sub.length;i++){
-      if (str[i]!==sub[i]){
-        found = false
+    var found = true;
+    for (var i = 0; i < sub.length; i++) {
+      if (str[i] !== sub[i]) {
+        found = false;
       }
     }
 
-    if (found){
-      result ++
+    if (found) {
+      result++;
     }
-    traverse(str.slice(1,str.length),sub)
+    traverse(str.slice(1, str.length), sub);
   }
 
-  traverse(str,sub)
-  return result
+  traverse(str, sub);
+  return result;
 }
-
-console.log(countSubstring("aacaaca", "ac"))

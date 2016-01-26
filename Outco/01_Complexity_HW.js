@@ -18,10 +18,10 @@ function firstTimesLast(array) {
   if (array.length < 2) {
     return result;
   } else {
-    result = array[0] * array[length-1];
+    result = array[0] * array[length - 1];
     return result;
   }
-};
+}
 
 /**
  * Problem 2:
@@ -34,7 +34,7 @@ function mostFrequentOccurrence(string) {
   var letters = {};
   var mostFrequent = [];
 
-  for(var i = 0; i < lowerString.length; i++) {
+  for (var i = 0; i < lowerString.length; i++) {
     if (letters[lowerString[i]]) {
       letters[lowerString[i]] ++;
     } else {
@@ -43,7 +43,7 @@ function mostFrequentOccurrence(string) {
   }
   // time n, aux at most 26 letters, therefore constant
 
-  for(var key in letters) {
+  for (var key in letters) {
     if (!mostFrequent.length) {
       mostFrequent = [key, letters[key]];
     } else {
@@ -54,7 +54,7 @@ function mostFrequentOccurrence(string) {
   }
   //time at most 26 letters, so it's constant , aux is constant
   return mostFrequent[0];
-};
+}
 
 /**
  * Problem 3:
@@ -65,10 +65,10 @@ function mostFrequentOccurrence(string) {
 function printUnorderedPairs(array) {
  for (var i = 0; i < array.length; i++) {
     for (var j = i; j < array.length; j++) {
-      console.log(array[i] + "," + array[j]);
+      console.log(array[i] + ',' + array[j]);
     }
   }
-};
+}
 
 /**
  * Problem 4:
@@ -88,7 +88,7 @@ function sortedArraySearch(sortedArray, target) {
   } else {
     return -1;
   }
-};
+}
 
 /**
  * Problem 5:
@@ -113,4 +113,4 @@ function makeCombinedMatrix(arrayOne, arrayTwo) {
   //time m, aux m
 
   return result;
-};
+}

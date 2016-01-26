@@ -44,81 +44,81 @@
   *                                                                                *
   **********************************************************************************/
 
-function Node(val,next){
-  this.value=val;
-  this.next=next;
+function Node(val, next) {
+  this.value = val;
+  this.next = next;
 }
 
-function LinkedList(){
-  this.head=null;
-  this.tail=null;
-  this.length=0;
+function LinkedList() {
+  this.head = null;
+  this.tail = null;
+  this.length = 0;
 }
 
-LinkedList.prototype.append= function(val) {
-    var newNode = new Node(val,null);
-    if (!this.head){
-      this.head=newNode;
-      this.tail=newNode;
-    }else{
-      this.tail.next=newNode;
-      this.tail=newNode;
+LinkedList.prototype.append = function(val) {
+    var newNode = new Node(val, null);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    }else {
+      this.tail.next = newNode;
+      this.tail = newNode;
     }
-    this.length++
-}
+    this.length++;
+};
 
-LinkedList.prototype.insert= function(searchVal,insertVal) {
-    var currentNode=this.head
-    while(currentNode.next!== null){
-      if (currentNode.next.value===searchVal){
-        newNode= new Node(insertVal,currentNode.next)
-        currentNode.next=newNode
-        this.length++
-        return
+LinkedList.prototype.insert = function(searchVal, insertVal) {
+    var currentNode = this.head;
+    while (currentNode.next !== null) {
+      if (currentNode.next.value === searchVal) {
+        newNode = new Node(insertVal, currentNode.next);
+        currentNode.next = newNode;
+        this.length++;
+        return;
       } else {
-        currentNode = currentNode.next
+        currentNode = currentNode.next;
       }
     }
-    console.log("search value not found!")
-}
+    console.log('search value not found!');
+};
 
-LinkedList.prototype.delete= function(location) {
-    if (location){
-      if (location<this.length){
-        var currentNode=this.head
-        var prevNode=null
-        var pointer=0
-        while(pointer!==location){
-            prevNode=currentNode
-            currentNode = currentNode.next
-            pointer++
+LinkedList.prototype.delete = function(location) {
+    if (location) {
+      if (location < this.length) {
+        var currentNode = this.head;
+        var prevNode = null;
+        var pointer = 0;
+        while (pointer !== location) {
+            prevNode = currentNode;
+            currentNode = currentNode.next;
+            pointer++;
         }
-        prevNode.next=currentNode.next
-        currentNode=null
-        this.length--
+        prevNode.next = currentNode.next;
+        currentNode = null;
+        this.length--;
       }
     } else {
-      this.head=this.head.next
-      this.length--
+      this.head = this.head.next;
+      this.length--;
     }
-}
+};
 
-LinkedList.prototype.contains=function(val){
-  var currentNode=this.head
-  while (currentNode){
-    if (currentNode.value===val){
-      return true
+LinkedList.prototype.contains = function(val) {
+  var currentNode = this.head;
+  while (currentNode) {
+    if (currentNode.value === val) {
+      return true;
     }
-    currentNode=currentNode.next
+    currentNode = currentNode.next;
   }
-  return false
-}
+  return false;
+};
 
-var list = new LinkedList
+var list = new LinkedList;
 
-list.append("a")
-list.append("b")
-list.append("c")
-list.append("d")
+list.append('a');
+list.append('b');
+list.append('c');
+list.append('d');
 
-console.log(list.contains("e"))
+console.log(list.contains('e'));

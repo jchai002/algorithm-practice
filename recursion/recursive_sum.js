@@ -11,21 +11,21 @@
  *    Input: [1,9,3,4,5]
  *    Output: 22
  **/
- 
-function sum(array){
-  var sum=0;
 
-  function traverse(array){
-    if (!array.length){
-      return
+function sum(array) {
+  var sum = 0;
+
+  function traverse(array) {
+    if (!array.length) {
+      return;
     }
-    sum+=array[0]
-    array.splice(0,1)
-    traverse(array)
+    sum += array[0];
+    array.splice(0, 1);
+    traverse(array);
   }
 
-  traverse(array)
-  return sum
+  traverse(array);
+  return sum;
 }
 
-console.log(sum([1,9,3,4,5]))
+console.log(sum([1, 9, 3, 4, 5]));

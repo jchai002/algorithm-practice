@@ -14,44 +14,44 @@
  *    Output: [[1,4,3],[5,9]]
  **/
 
-function pivotIterative(array,index) {
-  var pivotValue=array[index]
-  var lessThan=[]
-  var others=[]
+function pivotIterative(array, index) {
+  var pivotValue = array[index];
+  var lessThan = [];
+  var others = [];
 
-  for (var i=0;i<array.length;i++){
-    if(array[i]<pivotValue){
-      lessThan.push(array[i])
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] < pivotValue) {
+      lessThan.push(array[i]);
     } else {
-      others.push(array[i])
+      others.push(array[i]);
     }
   }
 
 
-  return [lessThan,others]
+  return [lessThan, others];
 }
 
-function pivotRecursive(array,pivotIndex) {
-  var pivotValue=array[pivotIndex]
-  var lessThan=[]
-  var others=[]
-  var stopIndex=array.length
+function pivotRecursive(array, pivotIndex) {
+  var pivotValue = array[pivotIndex];
+  var lessThan = [];
+  var others = [];
+  var stopIndex = array.length;
 
-  function traverse(index){
-    if (index===stopIndex){
-      return
+  function traverse(index) {
+    if (index === stopIndex) {
+      return;
     }
 
-    if (array[index]<pivotValue){
-      lessThan.push(array[index])
+    if (array[index] < pivotValue) {
+      lessThan.push(array[index]);
     } else {
-      others.push(array[index])
+      others.push(array[index]);
     }
-    traverse(index+1)
+    traverse(index + 1);
   }
 
-  traverse(0)
-  return [lessThan,others]
+  traverse(0);
+  return [lessThan, others];
 }
 
-console.log(pivotRecursive([1,9,4,3,5], 4))
+console.log(pivotRecursive([1, 9, 4, 3, 5], 4));

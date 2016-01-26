@@ -9,8 +9,8 @@ var indexOfMinimum = function(array, startIndex) {
     var minValue = array[startIndex];
     var minIndex = startIndex;
 
-    for(var i = minIndex + 1; i < array.length; i++) {
-        if(array[i] < minValue) {
+    for (var i = minIndex + 1; i < array.length; i++) {
+        if (array[i] < minValue) {
             minIndex = i;
             minValue = array[i];
         }
@@ -20,8 +20,8 @@ var indexOfMinimum = function(array, startIndex) {
 
 var selectionSort = function(array) {
     var i;
-    for (i=0;i<array.length;i++){
-        var minIndex= indexOfMinimum(array,i);
-        swap(array,i,minIndex);
+    for (i = 0; i < array.length; i++) {
+        var minIndex = indexOfMinimum(array, i);
+        swap(array, i, minIndex);
     }
 };

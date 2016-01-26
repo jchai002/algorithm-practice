@@ -33,41 +33,41 @@
 
 //code
 
-function test(testCase){
-        for (var i=0;i<testCase.length;i++){
-        var leftSum=0
-        for (var j=0;j<i;j++){
-            leftSum+=Number(testCase[j])
+function test(testCase) {
+        for (var i = 0; i < testCase.length; i++) {
+        var leftSum = 0;
+        for (var j = 0; j < i; j++) {
+            leftSum += Number(testCase[j]);
         }
-        var rightSum=0
-        for (var k=i+1;k<testCase.length;k++){
-            rightSum+=Number(testCase[k])
+        var rightSum = 0;
+        for (var k = i + 1; k < testCase.length; k++) {
+            rightSum += Number(testCase[k]);
         }
-        if(leftSum===rightSum){
-           return "YES"
+        if (leftSum === rightSum) {
+           return 'YES';
         }
     }
-    return "NO"
+    return 'NO';
 }
 
 
 function processData(input) {
-    var testCases=[]
-    var inputArray=input.split("\n")
-    inputArray.shift()
-    for (var a=0;a<inputArray.length;a++){
-        if(a%2!==0){
-            testCases.push(inputArray[a])
+    var testCases = [];
+    var inputArray = input.split('\n');
+    inputArray.shift();
+    for (var a = 0; a < inputArray.length; a++) {
+        if (a % 2 !== 0) {
+            testCases.push(inputArray[a]);
         }
     }
-    for (var b=0;b<testCases.length;b++){
-        testCases[b]=testCases[b].split(' ')
+    for (var b = 0; b < testCases.length; b++) {
+        testCases[b] = testCases[b].split(' ');
     }
 
-    var results=[]
+    var results = [];
 
-    for (var c=0;c<testCases.length;c++){
-        results.push(test(testCases[c]))
+    for (var c = 0; c < testCases.length; c++) {
+        results.push(test(testCases[c]));
     }
-    console.log(results.join("\n"))
+    console.log(results.join('\n'));
 }

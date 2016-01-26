@@ -16,11 +16,11 @@ var middleCharacters = function(str) {
 
 var isPalindrome = function(str) {
     // base case #1
-    if (str.length<2) {
+    if (str.length < 2) {
         return true;
     }
     // base case #2
-    else if (firstCharacter(str)!==lastCharacter(str)){
+    else if (firstCharacter(str) !== lastCharacter(str)) {
         return false;
     } else {
         return isPalindrome(middleCharacters(str));
@@ -29,6 +29,6 @@ var isPalindrome = function(str) {
 };
 
 var checkPalindrome = function(str) {
-    println("Is this word a palindrome? " + str);
+    println('Is this word a palindrome? ' + str);
     println(isPalindrome(str));
 };
