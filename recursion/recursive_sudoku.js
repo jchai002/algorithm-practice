@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 function Sudoku(input) {
   this.board = input.split('');
   this.rows = [[], [], [], [], [], [], [], [], []];
@@ -30,7 +28,13 @@ Sudoku.prototype.solve = function(board) {
 };
 
 Sudoku.prototype.solved = function() {
-  return !_.includes(this.board, '-');
+  for (var i = 0; i < this.board.length; i++) {
+    if (this.board[i] === '-') {
+      return false;
+    }
+  }
+
+  return true;
 };
 
 Sudoku.prototype.valid = function() {
@@ -89,7 +93,7 @@ var formatBoard = function(string) {
   return result;
 };
 
-s = new Sudoku('3---------5-7-3--8----28-7-7------43-----------39-41-54--3--8--1---4----968---2--');
+s = new Sudoku('4312-----------------------------------------------------------------------------');
 
 var start = new Date().getTime();
 console.log(formatBoard(s.solve()));
