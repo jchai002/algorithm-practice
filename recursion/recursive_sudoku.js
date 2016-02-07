@@ -75,18 +75,18 @@ Sudoku.prototype.prepBoard = function() {
 };
 
 var formatBoard = function(string) {
-  var result=''
-  var begin=0
-  var end=1
+  var result = '';
+  var begin = 0;
+  var end = 1;
   while (end < 82) {
-    result+=string.slice(begin,end)+ ' '
-    if (end%9===0) {
-      result+= '\n'
+    result += string.slice(begin, end) + ' ';
+    if (end % 9 === 0) {
+      result += '\n';
     }
-    begin++
-    end++
+    begin++;
+    end++;
   }
-  return result
+  return result;
 };
 
 s = new Sudoku('3---------5-7-3--8----28-7-7------43-----------39-41-54--3--8--1---4----968---2--');
@@ -95,4 +95,4 @@ var start = new Date().getTime();
 console.log(formatBoard(s.solve()));
 var end = new Date().getTime();
 var time = end - start;
-console.log('Execution time:',time+'ms');
+console.log('Execution time:', time + 'ms');

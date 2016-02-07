@@ -1,13 +1,11 @@
 function maxSum(arr) {
-  var max = 0;
-  var sum = 0;
+  var maxSum = arr[0];
+  var resultMax = arr[0];
   for (var i = 0; i < arr.length; i++) {
-    sum += arr[i];
-    if (sum > max) {
-      max = sum;
-    }
+      maxSum = Math.max(arr[i], maxSum + arr[i]);
+      resultMax = Math.max(resultMax, maxSum);
   }
-  return max;
+  return resultMax;
 }
 
-console.log(maxSum([6, -1, 3, 5, -10]));
+console.log(maxSum([-2, 10]));
